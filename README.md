@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-After cloning the project, type `npm install` to download necesary dependencies. 
+After cloning the project, type `npm install` to download necesary dependencies. Import the SQL dump file; this file is located within the mysql folder. 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
