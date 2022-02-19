@@ -1,0 +1,103 @@
+table, th, td {
+    
+  text-align: center;
+}
+
+thead > tr {
+  background-color: purple;
+  font-size: 20px; 
+  }
+
+  th {
+    width: 200px;
+    }
+
+.deleteEvent {
+  color: gray;
+  cursor: pointer;
+  
+}
+
+
+#currentEvents {
+  color: purple; 
+  text-align: center;
+}
+
+.eventHeader {
+margin-left: auto;
+margin-right: auto;
+color: black;
+font-size: 20px;
+
+}
+
+.iconAlign {
+vertical-align: middle;
+text-align: center;
+}
+
+
+#addEvent { 
+
+display: flex;
+justify-content: center;
+align-items: center;
+color: purple;
+}
+
+.eventGroup {
+text-align: center;
+
+}
+
+.header {
+color: white;
+width: 100px;
+}
+
+
+.newEventInfo {
+margin-left: auto;
+margin-right: auto;
+color: black;
+font-size: 20px;
+}
+
+.newEventHeader {
+color: white;
+text-align: center;
+}
+
+.addEventButton {
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+
+.submitNewEvent {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#submitEvent {
+  color: purple;
+
+}
+
+.cancelNewEvent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cancelEvent {
+    color: purple;
+  
+}
+
+
+

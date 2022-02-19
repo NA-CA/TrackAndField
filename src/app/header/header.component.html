@@ -1,0 +1,51 @@
+<div class="title">
+    <h3>High School Track and Field</h3>
+</div>
+
+
+<div>
+
+    <div class = "userAndRole">
+    
+        <p>{{signedInUser}}</p>
+
+        <ng-template [ngIf]="signedInUserRole === 'h'"><div>Head Coach</div></ng-template>
+        <ng-template [ngIf]="signedInUserRole === 'c'"><div>Coach</div></ng-template>
+        <ng-template [ngIf]="signedInUserRole === 'a'"><div>Athlete</div></ng-template>
+        
+    </div>
+
+    <div class="tab" *ngIf = "isSignedIn">
+        <div *ngIf = "signedInUserRole === 'h'">
+        <button class="tablinks" (click)="manageEvents()"> Events</button>
+        <button class="tablinks" (click) ="manageMeets()"> Meet Schedule</button>
+        <button class="tablinks" (click)="approveAthlete()">Approve Athlete</button>
+        <button class="tablinks" (click) = "myInfo()">My Info</button>
+        <button class="tablinks" (click) ="chat()">Chat Room</button>
+        <button class="tablinks" (click)="logout()">Log Out</button>
+        
+    </div>
+
+    <div class="tab" *ngIf = "isSignedIn">
+        <div *ngIf = "signedInUserRole === 'a'">
+        <button class="tablinks" (click)="myInfo()"> My Info</button>
+        <button class="tablinks" (click)="viewMeets()"> View Meets</button>
+        <button class="tablinks" (click)="chat()"> Chat</button>
+        <button class="tablinks" (click)="logout()"> Logout</button>
+        
+    </div>
+
+    <div class="tab" *ngIf = "isSignedIn">
+        <div *ngIf = "signedInUserRole === 'c'">
+        <button class="tablinks" (click)="manageEvents()"> Events</button>
+        <button class="tablinks" (click) ="manageMeets()"> Meet Schedule</button>
+        <button class="tablinks" (click) = "myInfo()">My Info</button>
+        <button class="tablinks" (click) ="chat()">Chat Room</button>
+        <button class="tablinks" (click)="logout()">Log Out</button>
+        
+    </div>
+        
+    </div>
+    
+</div>
+

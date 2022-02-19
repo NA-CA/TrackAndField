@@ -1,0 +1,24 @@
+<form #userPost="ngForm" (ngSubmit)="signIn(userPost.value)" class="signIn">
+
+    <label>Username: </label>
+    <input type="text" #username id="username" name="username" class="form-control" ngModel placeholder="username"
+        required>
+    <br>
+    <br>
+
+    <label>Password: </label>
+    <input type="password" #password id="password" name="password" class="form-control" ngModel placeholder="password"
+        required>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    <button type="submit" class="logIn">Log In</button>
+
+</form>
+
+<br>
+<button type="button" color="purple" (click)="home()" class="Home" id="Home">Home

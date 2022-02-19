@@ -1,0 +1,128 @@
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <div title="currentMeets" id="currentMeets">
+    <h1>Meet Schedule</h1>
+  </div>
+
+  <table class="meetHeader">
+    <thead>
+      <tr class="header">
+        <th>Date</th>
+        <th>Location</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+
+    <ng-container *ngFor="let oneMeet of arr; let i = index">
+      <tr>
+        <td>{{oneMeet.meetDate}}</td>
+        <td>{{oneMeet.meetLocation}}</td>
+        <td>{{oneMeet.meetTime}}</td>
+
+        <div *ngIf="signedInUserRole != 'a'">
+          <td>
+            <i class="updateMeet" (click)="update(i)">
+              <i class=" material-icons " id="update">update</i>
+            </i>
+            <i class="deleteMeet" (click)="delete(oneMeet.meetId)">
+              <i class=" material-icons " id="delete">delete</i>
+            </i>
+          </td>
+        </div>
+
+    </ng-container>
+  </table>
+
+  <div class="addMeetButton">
+    <div *ngIf="signedInUserRole != 'a'">
+      <button type="button" color="green" (click)="add()" id="addMeet"><i class=" material-icons iconAlign"
+          id="add_box">add_box</i></button>
+      <br />
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+</form>
+
+<div *ngIf="buttonPressed">
+  <form #userPost="ngForm" (ngSubmit)="storeMeets(userPost.value)">
+
+    <table class="newMeetInfo">
+
+      <thead>
+        <tr class="newMeetInfoHeader">
+
+          <th>Date</th>
+          <th>Location</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+
+      <tr>
+
+        <td><input type="date" id="date" name="date" class="form-control" ngModel placeholder="date"></td>
+        <td><input type="text" id="location" name="location" class="form-control" [(ngModel)]="addMeet.location"
+            #location="ngModel" required minlength="4"></td>
+        <td><input type="time" #time id="time" name="time" class="form-control" ngModel placeholder="time" required>
+        </td>
+
+      </tr>
+
+    </table>
+
+    <div *ngIf="location.errors?.['minlength']" class="errMessage">
+      location must be at least 4 characters long.
+    </div>
+
+    <div *ngIf="time.errors?.['required']">
+      Time is required.
+    </div>
+
+    <div class="requiredField">
+      <h4>All fields required. </h4>
+    </div>
+    <button type="submit" id="submitButton" [disabled]="userPost.invalid">Submit</button>
+    <br>
+    <button class="button" (click)="cancel()" id="cancelButton">Cancel</button>
+  </form>
+
+</div>
+
+<div *ngIf="updatePressed">
+  <form #userPost="ngForm" (ngSubmit)="updateMeets(userPost.value)">
+    <table class="newMeetInfo">
+
+      <thead>
+        <tr class="newMeetInfoHeader">
+
+          <th>Date</th>
+          <th>Location</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+
+      <tr>
+
+        <td><input type="date" id="date" name="date" class="form-control" ngModel placeholder="date"
+            [(ngModel)]="meetDate"></td>
+        <td><input type="text" #location id="location" name="location" class="form-control" ngModel
+            placeholder="location" [(ngModel)]="meetLocation"></td>
+        <td><input type="time" #time id="time" name="time" class="form-control" ngModel placeholder="time" required
+            [(ngModel)]="meetTime"></td>
+      </tr>
+
+    </table>
+
+    <br>
+    <button type="submit" id="submitButton">Submit</button>
+    <br>
+
+    <button class="button" (click)="cancel()" id="cancelButton">Cancel</button>
+
+  </form>
+</div>

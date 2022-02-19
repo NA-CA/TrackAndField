@@ -1,0 +1,31 @@
+.signIn {
+    
+    text-align: center;
+    color: purple;    
+    justify-content: center;
+    
+}
+
+
+input {
+    margin-left: 15px;
+  }
+
+
+.logIn {
+  
+    color: purple;
+    font-size: 15px;
+    
+}
+
+#Home
+{
+    justify-content: center;
+    text-align: center;
+    color: purple;
+    width:5%;
+    margin-left:47.5%;
+    font-size: 15px;
+}
+

@@ -1,0 +1,135 @@
+table, th, td {
+
+    text-align: center;
+    border-bottom: 1px solid purple;
+    border: 1px solid purple;
+  }
+
+  thead > tr {
+    background-color: purple;
+    font-size: 20px; 
+  }
+
+  /*
+  th {
+    
+  }
+  */
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    font-size: 20px;
+  }
+
+  .deleteChat {
+    color: gray;
+    cursor: pointer;
+    
+  }
+
+  .updateChat {
+    color: gray;
+    cursor: pointer;
+    
+  }
+
+  .saveChat {
+    color: gray;
+    cursor: pointer;
+  }
+
+  .cancelChat {
+    color: gray;
+    cursor: pointer;
+  }
+
+  #currentChat {
+    color: purple; 
+    text-align: center;
+  }
+
+.chatHeader {
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  font-size: 20px;
+  
+}
+
+.iconAlign {
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+#addChat { 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+}
+
+
+.header {
+  color: white;
+  width: 100px;
+}
+
+
+
+.newChatInfo {
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  font-size: 20px;
+}
+
+.newChatHeader {
+  color: white;
+  text-align: center;
+}
+
+.addChatButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+#submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  display: block;
+  margin: auto;
+
+}
+
+
+#updateButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+#chat {
+  justify-content: center;
+}
+
+.cancelButton {
+  width:5%;
+  margin-left:47.5%;
+  color: purple;
+  cursor: pointer;
+}

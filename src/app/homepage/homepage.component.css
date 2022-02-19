@@ -1,0 +1,30 @@
+.title {
+    text-align: center;
+    color: purple;
+    font-size: 20px;
+}
+
+.newUser {
+    text-align: center;
+    color: purple;
+    justify-content: center;
+}
+
+.signUpButton {
+    color: white;
+    background-color: purple;
+    font-size: 20px;
+}
+
+.signInButton {
+    color: white;
+    background-color: purple;
+    font-size: 20px;
+    
+}
+
+.regUser {
+    text-align: center;
+    color: purple;
+    justify-content: center;
+}

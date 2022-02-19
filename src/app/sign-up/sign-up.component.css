@@ -1,0 +1,79 @@
+.userRole {
+    text-align: center;
+    color: purple;
+    font-size: 20px;
+}
+
+
+.radioRole {
+    display: inline;
+    font-size: 20px;
+}
+
+
+.athleteForm {
+    text-align: center;
+    color: purple;
+}
+
+
+.coachForm {
+    text-align: center;
+    color: purple;
+}
+
+.headCoachForm {
+    text-align: center;
+    color: purple;
+}
+.register {
+    
+    color: purple;
+
+}
+
+div.athleteInfo {
+    display: grid;
+    
+    /* don't delete this 
+    grid-template-columns: max-content max-content ;
+    */
+    
+    grid-gap: 15px;
+    
+    justify-content: center;
+
+}
+
+div.athleteInfo label  { text-align:left;}
+
+div.coachInfo {
+    display: grid;
+    /*
+    grid-template-columns: max-content max-content;
+    */
+    grid-gap: 15px;
+    
+    justify-content: center;
+
+}
+
+div.coachInfo label  { text-align:left;}
+
+div.headCoachInfo {
+    display: grid;
+    /*
+    grid-template-columns: max-content max-content;
+    */
+    grid-gap: 15px;
+    
+    justify-content: center;
+
+}
+
+div.headCoachInfo label  { text-align:left;}
+
+table {
+    margin-left: auto; 
+    margin-right: auto;
+}

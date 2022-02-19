@@ -1,0 +1,95 @@
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <div title="currentChat" id="currentChat">
+    <h1>Chat Room</h1>
+  </div>
+
+  <!--
+  <textarea [(ngModel)]="neelTextArea"  [ngModelOptions]="{standalone: true}">{{neelTextArea}}</textarea>
+  -->
+
+  <table>
+    
+    <colgroup>
+      <col span="1" style="width: 5%;">
+      <col span="1" style="width: 5%;">
+      <col span="1" style="width: 80%;">
+      <col span="1" style="width: 5%;">
+   </colgroup>
+
+    <ng-container *ngFor="let oneChat of arr; let i = index">
+      <tr height = "50px">
+        <td>{{oneChat.firstName}}</td>
+        <td>{{oneChat.chatDate}}</td>
+        <td>
+
+          <textarea [readOnly] = "oneChat.chatReadOnly" [(ngModel)]= "oneChat.chatText" [ngModelOptions]="{standalone: true}">{{oneChat.chatText}}</textarea>
+
+        </td>
+
+        <td>
+          <div *ngIf="oneChat.userId === userId">
+            
+            <div *ngIf= "oneChat.chatUpdateIcon === false">
+            
+            <i class="updateChat" (click)="update(i)">
+              <i class=" material-icons " id="update">update</i>
+            </i>
+            <i class="deleteChat" (click)="delete(oneChat.chatId)">
+              <i class=" material-icons " id="delete">delete</i>
+            </i>
+            </div>
+          
+          </div>
+
+
+          <div *ngIf="oneChat.userId === userId">
+            
+            <div *ngIf = "oneChat.chatUpdateIcon === true">
+            
+              <i class="saveChat" (click)="saveChat(i)">
+                <i class=" material-icons " id="save">save</i>
+              </i>
+
+              <i class="cancelChat" (click)="cancel()">
+                <i class=" material-icons " id="cancelChat">cancel</i>
+              </i>
+            </div>
+        </div>
+        </td>
+
+    </ng-container>
+  </table>
+
+  <div class="addChatButton">
+    <button type="button" color="green" (click)="add()" id="addChat"><i class=" material-icons iconAlign"
+        id="add_box">add_box</i></button>
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+</form>
+
+<div *ngIf="buttonPressed">
+  <form #userPost="ngForm" (ngSubmit)="storeChat(userPost.value)">
+
+    <table class="newChatInfo">
+      <tr>
+        <td><textarea rows="4" cols="100" #chat id="chat" name="chat" class="form-control" ngModel placeholder="chat" required></textarea>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+    <button type="submit" id="submitButton">Submit</button>
+
+  </form>
+  <br>
+  <button class="button" (click)="cancel()" class="cancelButton">Cancel</button>
+
+</div>

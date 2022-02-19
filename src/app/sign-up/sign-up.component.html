@@ -1,0 +1,188 @@
+<form class="userRole">
+
+    <div class="role">
+        <p>Are you a : </p>
+    </div>
+
+    <div class="radioRole">
+
+        <label>
+
+            <input type="radio" value="1" name="radiobtn" value="Athlete" (change)="displayForm(1)" [checked]='false'>
+            Athlete
+        </label>
+
+        <label>
+            <input type="radio" name="radiobtn" value="Coach" (change)="displayForm(2)" [checked]='false'> Coach
+        </label>
+
+        <label>
+            <input type="radio" name="radiobtn" value="HeadCoach" (change)="displayForm(3)" [checked]='false'> Head
+            Coach
+        </label>
+    </div>
+
+</form>
+
+<br>
+
+<div *ngIf="athleteShown" class="row container-fluid" id="divshow">
+
+    <form #userPost="ngForm" (ngSubmit)="athlete(userPost)" class="athleteForm">
+
+        <div class="athleteInfo">
+
+            <label>First Name: </label>
+            <input type="text" class="form-control" ngModel name="firstname" required>
+
+            <label>Last Name: </label>
+            <input type="text" class="form-control" ngModel name="lastname" required>
+
+            <label>Email: </label>
+            <input type="email" name="email" [class.is-invalid]="emailRef.invalid && emailRef.touched"
+                class="form-control" [(ngModel)]="user.email" [email]="emailValidation" #emailRef="ngModel" required />
+            <div *ngIf="(emailRef.invalid && emailRef.touched) || emailRef.dirty">
+                <small class="text-danger" *ngIf="emailRef.errors?.email">Email not valid</small>
+            </div>
+
+            <label>Phone: </label>
+            <input type="text" class="form-control" ngModel name="phone" required>
+
+            <label>Username: </label>
+            <input type="text" class="form-control" ngModel name="username" required>
+
+            <label>Password: </label>
+
+            <input name="password" type="password" class="form-control" [ngModel]="user.password" required
+                [pattern]="pwdPattern" #pwd="ngModel">
+            <div *ngIf="pwd.errors && userPost.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                <small class="text-danger" *ngIf="pwd.errors.pattern">Password not valid</small>
+            </div>
+
+        </div>
+
+        <h4>Password must contain a special character, <br /> a upper case letter, a lower case letter, <br /> and
+            between 6-12 characters </h4>
+
+        <table class="genderTable">
+
+            Gender
+            <input id="male" type="radio" name="gender" class="custom-control" [(ngModel)]="genders" #gender="ngModel"
+                [value]="0">Male
+            <input id="female" type="radio" name="gender" class="custom-control" [(ngModel)]="genders" #gender="ngModel"
+                [value]="1">Female
+
+        </table>
+
+        <table class="gradeTable">
+
+            <br>
+
+            Grade
+            <input id="Grade9th" type="radio" name="grade" class="custom-control" [(ngModel)]="grades" #grade="ngModel"
+                [value]="0">9th
+            <input id="Grade10th" type="radio" name="grade" class="custom-control" [(ngModel)]="grades" #grade="ngModel"
+                [value]="1">10th
+            <input id="Grade11th" type="radio" name="grade" class="custom-control" [(ngModel)]="grades" #grade="ngModel"
+                [value]="2">11th
+            <input id="Grade12th" type="radio" name="grade" class="custom-control" [(ngModel)]="grades" #grade="ngModel"
+                [value]="3">12th
+
+        </table>
+
+        <div class="form-group">
+            <br>
+            <br>
+            <button type="submit" class="register">Sign Up</button>
+        </div>
+
+    </form>
+</div>
+
+<div *ngIf="coachShown" class="row container-fluid" id="divshow">
+    <form #userPost="ngForm" (ngSubmit)="coach(userPost)" class="coachForm">
+
+        <div class="coachInfo">
+
+            <label>First Name: </label>
+            <input type="text" class="form-control" ngModel name="firstname" required>
+
+            <label>Last Name: </label>
+            <input type="text" class="form-control" ngModel name="lastname" required>
+
+            <label>Email: </label>
+            <input type="email" name="email" [class.is-invalid]="emailRef.invalid && emailRef.touched"
+                class="form-control" [(ngModel)]="user.email" [email]="emailValidation" #emailRef="ngModel" required />
+            <div *ngIf="(emailRef.invalid && emailRef.touched) || emailRef.dirty">
+                <small class="text-danger" *ngIf="emailRef.errors?.email">Email not valid</small>
+
+            </div>
+
+            <label>Phone: </label>
+            <input type="text" class="form-control" ngModel name="phone" required>
+
+            <label>Username: </label>
+            <input type="text" class="form-control" ngModel name="username" required>
+
+            <label>Password: </label>
+
+            <input name="password" type="password" class="form-control" [ngModel]="user.password" required
+                [pattern]="pwdPattern" #pwd="ngModel">
+            <div *ngIf="pwd.errors && userPost.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+
+                <small class="text-danger" *ngIf="pwd.errors.pattern">Password not valid</small>
+
+            </div>
+
+        </div>
+
+        <h4>Password must contain a special character, <br /> a upper case letter, a lower case letter, <br /> and
+            between 6-12 characters </h4>
+
+        <button type="submit" class="register">Sign Up</button>
+
+    </form>
+
+</div>
+
+<div *ngIf="headCoachShown" class="row container-fluid" id="divshow">
+    <form #userPost="ngForm" (ngSubmit)="headCoach(userPost)" class="headCoachForm">
+
+        <div class="coachInfo">
+
+            <label>First Name: </label>
+            <input type="text" class="form-control" ngModel name="firstname" required>
+
+            <label>Last Name: </label>
+            <input type="text" class="form-control" ngModel name="lastname" required>
+
+            <label>Email: </label>
+            <input type="email" name="email" [class.is-invalid]="emailRef.invalid && emailRef.touched"
+                class="form-control" [(ngModel)]="user.email" [email]="emailValidation" #emailRef="ngModel" required />
+            <div *ngIf="(emailRef.invalid && emailRef.touched) || emailRef.dirty">
+                <small class="text-danger" *ngIf="emailRef.errors?.email">Email not valid</small>
+
+            </div>
+
+            <label>Phone: </label>
+            <input type="text" class="form-control" ngModel name="phone" required>
+
+            <label>Username: </label>
+            <input type="text" class="form-control" ngModel name="username" required>
+
+            <label>Password: </label>
+
+            <input name="password" type="password" class="form-control" [ngModel]="user.password" required
+                [pattern]="pwdPattern" #pwd="ngModel">
+            <div *ngIf="pwd.errors && userPost.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+
+                <small class="text-danger" *ngIf="pwd.errors.pattern">Password not valid</small>
+            </div>
+        </div>
+
+        <h4>Password must contain a special character, <br /> a upper case letter, a lower case letter, <br /> and
+            between 6-12 characters </h4>
+
+        <button type="submit" class="register">Sign Up</button>
+    </form>
+</div>

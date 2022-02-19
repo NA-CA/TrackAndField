@@ -1,0 +1,113 @@
+table, th, td {
+    
+  text-align: center;
+}
+
+th {
+  width: 200px;
+  }
+
+thead > tr {
+  background-color: purple;
+  font-size: 20px; 
+  }
+
+.editEvent {
+  color: blue;
+}
+
+.deleteMeet {
+  color: gray;
+  cursor: pointer;
+  
+}
+
+.updateMeet {
+  color: gray;
+  cursor: pointer;
+  
+}
+
+#currentMeets {
+  color: purple; 
+  text-align: center;
+}
+
+.meetHeader {
+margin-left: auto;
+margin-right: auto;
+color: black;
+font-size: 20px;
+
+}
+
+.iconAlign {
+vertical-align: middle;
+text-align: center;
+}
+
+
+#addMeet{ 
+
+display: flex;
+justify-content: center;
+align-items: center;
+color: purple;
+
+}
+
+
+.header {
+color: white;
+width: 100px;
+}
+
+
+
+
+.newMeetInfo {
+margin-left: auto;
+margin-right: auto;
+color: black;
+font-size: 20px;
+}
+
+.newMeetInfoHeader {
+color: white;
+text-align: center;
+}
+
+.addMeetButton {
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+#submitButton {
+display: flex;
+justify-content: center;
+align-items: center;
+color: purple;
+display: block;
+margin: auto;
+cursor: pointer;
+
+}
+
+.errMessage{
+color: red;
+text-align: center;
+}
+
+.requiredField {
+  text-align: center;
+
+}
+
+#cancelButton {
+  width:5%;
+  margin-left:47.5%;
+  color: purple;
+  cursor: pointer;
+}

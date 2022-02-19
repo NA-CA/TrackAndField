@@ -1,0 +1,46 @@
+<form #userPost="ngForm" (ngSubmit)="myInfo(userPost.value)" class="myInfo">
+
+        <div class="userInfo">
+                <div title="approveAthlete" id="approveAthlete">
+                        <h1>My Info</h1>
+                </div>
+
+                <label>First Name </label>
+
+                <input type="firstname" id="firstname" class="form-control" ngModel name="firstname" required firstname
+                        [(ngModel)]="firstName" #firstname="ngModel">
+
+                <small class="text-danger" *ngIf="!firstname.valid && firstname.touched"> First Name is required</small>
+
+                <label>Last Name </label>
+
+                <input type="lastname" id="lastname" class="form-control" ngModel name="lastname" required lastname
+                        [(ngModel)]="lastName" #lastname="ngModel">
+
+                <small class="text-danger" *ngIf="!lastname.valid && lastname.touched"> Last Name is required</small>
+
+                <label>Email </label>
+                <input type="email" name="email" [class.is-invalid]="emailRef.invalid && emailRef.touched"
+                        class="form-control" [(ngModel)]="user.email" [email]="emailValidation" [(ngModel)]="email"
+                        #emailRef="ngModel" required />
+                <div *ngIf="(emailRef.invalid && emailRef.touched) || emailRef.dirty">
+
+                        <small class="text-danger" *ngIf="emailRef.errors?.required">Email address is required</small>
+                        <small class="text-danger" *ngIf="emailRef.errors?.email">Email address is invalid</small>
+
+                </div>
+
+                <label>Phone </label>
+                <input type="phone" id="phone" class="form-control" ngModel name="phone" required phone
+                        [(ngModel)]="phoneUpdated" #phone="ngModel">
+                <br>
+                <br>
+
+        </div>
+        <button type="submit" class="submit">Submit</button>
+        <br>
+        <br>
+
+</form>
+
+<button class="button" (click)="cancel()" class="cancelButton">Cancel</button>

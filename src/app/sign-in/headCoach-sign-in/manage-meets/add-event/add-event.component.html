@@ -1,0 +1,79 @@
+<form #userPost = "ngForm" (ngSubmit) = "onSubmit(userPost.value)" >
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+
+
+ <title>Current Events</title>
+
+  <table>
+      <tr>
+
+        <th>Event Group</th>
+        <th>Event Name</th>
+        <th></th>
+      </tr>
+
+      <ng-container>
+          <tr>
+              <td>
+                
+
+                
+                
+                <!--
+                <div class="dropdown">
+                  <button class="dropbtn">Dropdown</button>
+                  <div class="dropdown-content">
+                    <a href="#" (click) = "running()">running</a>
+                    <a href="#">relays</a>
+                    <a href="#">jumps</a>
+                    <a href="#">throws</a>
+                    <a href="#">hurdles</a>
+                  </div>
+                </div>
+              -->
+
+              </td>
+          
+      </ng-container>
+      
+    </table>
+
+    <!--
+    <i  class = "addEvent" (click) = "add()">
+      <i>Add Event</i><i class=" material-icons "   id = "add_box">add_box</i>
+      
+    </i>  
+  -->
+
+
+    
+</form>
+
+<form #userPost = "ngForm" (ngSubmit) = "storeEventGroup()" >
+
+<ng-container>
+  <tr>
+    <td>
+    <select [(ngModel)]="eventGroup"  [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let eventGroup of eventGroups" [value]="eventGroup"> {{ eventGroup }} </option>
+    </select>
+
+
+    <select *ngIf="eventGroup" [(ngModel)]="eventName" [value]="eventName" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let eventName of eventNames"> {{ eventName }} </option>
+    </select>
+  </td>
+
+  </tr>
+
+</ng-container>
+
+    <i  class = "addEvent" >
+      <i>Add Event</i><i class=" material-icons " id = "add" (click) = "storeEventGroup()">add</i>
+      <!--
+      <i>Add Event</i><i class=" material-icons "   id = "add_box">add_box</i>
+      -->
+    </i>
+</form>
+

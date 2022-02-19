@@ -1,0 +1,18 @@
+<div class="title">
+    <p>Welcome to High School Track and Field arena. Here an athlete/coach will be able to register, view meet schedule, add track events as well as chat with the team. </p>
+    <br>
+    
+</div>
+
+
+<form #userPost = "ngForm" (ngSubmit) = "signUp()" class = "newUser">
+    <h3>A New User?</h3> 
+    <button type = "submit" class="signUpButton">Sign Up</button>
+</form>
+
+<form #userPost = "ngForm" (ngSubmit) = "signIn()" class="regUser">
+    <br>
+    <h3>Already a registered user?</h3>
+    <button type = "submit" class="signInButton">Sign In</button>
+
+</form>

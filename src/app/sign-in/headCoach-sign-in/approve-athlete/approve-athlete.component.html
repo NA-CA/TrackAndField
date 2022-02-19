@@ -1,0 +1,31 @@
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <div title="approveAthlete" id="approveAthlete">
+    <h1>Approve Athlete</h1>
+  </div>
+
+  <table class="approveAthleteHeader">
+    <thead>
+      <tr class="header">
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Request Date</th>
+        <th>Approve</th>
+      </tr>
+    </thead>
+
+    <ng-container *ngFor="let oneEvent of arr; let i = index">
+      <tr>
+        <td>{{oneEvent.lastName}}</td>
+        <td>{{oneEvent.firstName}}</td>
+        <td>{{oneEvent.requestDate}}</td>
+        <td>
+          <button type="button" (click)="appAth(oneEvent)" class="approveAthlete">Approve athlete</button>
+        </td>
+
+    </ng-container>
+
+  </table>
+
+</form>

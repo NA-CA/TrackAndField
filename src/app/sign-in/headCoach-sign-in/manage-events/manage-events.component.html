@@ -1,0 +1,88 @@
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <div title="currentEvents" id="currentEvents">
+    <h1>Manage Events</h1>
+  </div>
+
+  <table class="eventHeader">
+    <thead>
+      <tr class="header">
+        <th>Event Group</th>
+        <th>Event Name</th>
+
+      </tr>
+    </thead>
+
+    <ng-container *ngFor="let oneEvent of arr; let i = index">
+      <tr>
+        <td>{{oneEvent.eventGroup}}</td>
+        <td>{{oneEvent.eventName}}</td>
+        <td>
+          <i class="deleteEvent" (click)="delete(oneEvent.eventId)">
+            <i class=" material-icons " id="delete">delete</i>
+          </i>
+        </td>
+
+    </ng-container>
+
+  </table>
+
+  <div class="addEventButton">
+    <button type="button" color="green" (click)="add()" id="addEvent"><i class=" material-icons iconAlign"
+        id="add_box">add_box</i></button>
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+</form>
+
+<div *ngIf="buttonPressed">
+
+  <table class="newEventInfo">
+
+    <thead>
+      <tr class="newEventHeader">
+
+        <th>Event Group</th>
+        <th>Event Name</th>
+
+      </tr>
+    </thead>
+
+    <ng-container>
+      <tr>
+
+        <td>
+
+          <select [(ngModel)]="eventGroup" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let eventGroup of eventGroups" [value]="eventGroup"> {{ eventGroup }} </option>
+          </select>
+        </td>
+
+        <td>
+          <select *ngIf="eventGroup" [(ngModel)]="eventName" ngModel="test" [value]="eventName"
+            [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let eventName of eventNames" [value]="eventName"> {{ eventName }} </option>
+          </select>
+        </td>
+
+      </tr>
+
+    </ng-container>
+
+  </table>
+
+  <br />
+  <div class="submitNewEvent">
+
+    <button type="button" (click)="storeEventGroup()" id="submitEvent">Submit</button>
+
+  </div>
+
+  <br />
+  <div class="cancelNewEvent">
+    <button type="button" (click)="cancelEventGroup()" id="cancelEvent">Cancel</button>
+  </div>
