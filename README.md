@@ -1,5 +1,8 @@
 # Trackandfield
 
+## Summary
+This application allows athletes, coaches, head coaches to create an account, add events and meets, approve athletes for the season, update their info, communicate with the team in a chat room. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
 ## Development server
