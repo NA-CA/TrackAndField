@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
   isValidFormSubmitted = false;
   newUserCreated = new User();
 
-  pwdPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
+  pwdPattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~!@#$%^&]).{6,12}$";
 
   constructor(private router: Router, private http:HttpClient, private userService: UserService) 
   { 

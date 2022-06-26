@@ -11,6 +11,7 @@ var crypto = require('crypto');
 const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
 
+
 const secretKey = 'usersecretkey';
 
 const db = mysql.createConnection({
@@ -79,6 +80,15 @@ app.post('/coach', (req,res, user) =>{
 
 // sign up athlete
 app.post('/athlete', (req,res, user) =>{
+
+    //------------
+    //let encrypt1 = encrypt('testtest'); 
+    //console.log(encrypt1 + 'encrypt1'); 
+
+    //let decrypt1 = decrypt(encrypt1); 
+    //console.log(decrypt1 + 'decrypt1'); 
+
+    //----------
 
     let stringToEncrypt = req.body.password;
 
@@ -175,14 +185,18 @@ app.post('/addRequest', (req,res, user) =>{
 app.post('/updateRequests', (req,res, user) =>{
  
 
+
     let sql = `select email from users where users.id = ${req.body.id}`; 
+    console.log(sql + 'sqlresult'); 
     let query = db.query(sql, (err, result) => {
+
+        console.log(result + 'result'); 
 
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
               user: 'trackandfieldishealthy@gmail.com',
-              pass: 'runandclimb123'
+              pass: 'znswslsbrzpducjy'
             }
           });
           
@@ -339,7 +353,7 @@ app.get('/meetsExist', (req, res) => {
 // select correct athlete when they are approved 
 app.get('/getAthleteToApprove', (req, res) => {
 
-    let sql = `select u.lastname, u.firstname, r.id, r.req_date from users u, requests r where r.athlete_id = u.id AND req_status = 'P' `; 
+    let sql = `select u.lastname, u.firstname, u.id, r.req_date from users u, requests r where r.athlete_id = u.id AND req_status = 'P' `; 
     let query = db.query(sql, (err,results) => {
         
         res.send(results); 
@@ -439,6 +453,8 @@ app.get('/headCoachInfo', (req,res) => {
 // allows user to sign in 
 app.post('/signIn', (req,res) => {
 
+    console.table(req.body.password + 'body'); 
+
     var pwd = ''; 
 
     var encryptedPwd = ''; 
@@ -451,6 +467,7 @@ app.post('/signIn', (req,res) => {
         let query1 = db.query(sql1, (err,results) => 
         {
 
+
             
         if (Object.keys(results).length == 0)
         {
@@ -458,15 +475,22 @@ app.post('/signIn', (req,res) => {
         }
         else
         {
+            console.log('test'); 
             pwd = results[0].password;
 
-            let stringToEncrypt = pwd;
+            //console.log(pwd + 'pwd'); 
 
-            let encrypted = encrypt(stringToEncrypt); 
+            //let encrypted = encrypt(req.body.password); 
+            //console.log(encrypted + 'encrypted'); 
 
-            let decrypted = decrypt(encrypted);           
+            let decrypted = decrypt(pwd); 
+            //console.log(decrypted + 'decrypted'); 
 
-            let sql = `select  * from users where username = '${req.body.username}' and password = '${decrypted}'`;
+            if (decrypted == req.body.password)
+            {
+            let sql = `select  * from users where username = '${req.body.username}'`;
+
+            console.log(sql + 'sql');
 
             let query = db.query(sql, (err,results) => 
             {
@@ -490,6 +514,11 @@ app.post('/signIn', (req,res) => {
                       res.send(userTokenInfo); 
                 }
             });
+            }
+            else
+            {
+                res.send(null); 
+            }
         }
         
         });

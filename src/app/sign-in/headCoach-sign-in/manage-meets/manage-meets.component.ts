@@ -65,13 +65,7 @@ export class ManageMeetsComponent implements OnInit {
   }
 
 
-  cancel() {
-    this.meetDate = '';
-    this.meetLocation = '';
-    this.meetTime = ''; 
-    
-    location.reload(); 
-  }
+
 
 
   add() {
@@ -80,6 +74,8 @@ export class ManageMeetsComponent implements OnInit {
   }
 
   async storeMeets(data) {
+
+    //console.log('bad-------'); 
 
     var storeMeets = {date:data.date, location: data.location, time: data.time}; 
 
@@ -120,6 +116,15 @@ export class ManageMeetsComponent implements OnInit {
 
     location.reload();
 
+  }
+
+  cancel() {
+
+    this.meetDate = '';
+    this.meetLocation = '';
+    this.meetTime = ''; 
+    
+    location.reload(); 
   }
 
 }

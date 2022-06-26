@@ -118,7 +118,8 @@ export class ManageEventsComponent implements OnInit {
   }
 
   cancelEventGroup() {
-    console.trace(); 
+    location.reload(); 
+    //console.trace(); 
   }
 
 }
